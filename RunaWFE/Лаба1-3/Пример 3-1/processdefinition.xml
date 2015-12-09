@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="Пример 3-1">
+    <extensionElements>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="Process"/>
+    </extensionElements>
+    <laneSet id="laneSet1">
+      <lane id="ID1" name="Заведующий кафедрой">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Жуков)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID2" name="Лектор">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[@Лектор(Студент)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID3" name="Старший преподаватель">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Преподаватели)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID4" name="Преподаватель">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[@Преподаватель(Студент)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID5" name="Студент">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+      </lane>
+    </laneSet>
+    <startEvent id="ID6" name="Назначить сдачу экзамена">
+      <extensionElements>
+        <runa:property name="lane" value="Заведующий кафедрой"/>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="ID8" name="Начало1" sourceRef="ID6" targetRef="ID7"/>
+    <exclusiveGateway id="ID16" name="Исключающий шлюз 1">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.decision.GroovyDecisionHandler"/>
+        <runa:property name="config"><![CDATA[if ( Оценка_за_теорию.doubleValue() > Оценка_за_практикум.doubleValue() ) {
+	return "Оценка за теорию выше";
+};
+
+return "Оценка за теорию не выше";
+]]></runa:property>
+      </extensionElements>
+    </exclusiveGateway>
+    <sequenceFlow id="ID20" name="Оценка за теорию не выше" sourceRef="ID16" targetRef="ID19"/>
+    <sequenceFlow id="ID21" name="Оценка за теорию выше" sourceRef="ID16" targetRef="ID18"/>
+    <userTask id="ID9" name="Поставить отценку за практикум">
+      <extensionElements>
+        <runa:property name="lane" value="Старший преподаватель"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID14" name="Действие1" sourceRef="ID9" targetRef="ID13"/>
+    <userTask id="ID11" name="Поставить отценку за теоретический курс">
+      <extensionElements>
+        <runa:property name="lane" value="Лектор"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID15" name="Действие1" sourceRef="ID11" targetRef="ID13"/>
+    <userTask id="ID22" name="Сдать экзамен по теории">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID35" name="Действие1" sourceRef="ID22" targetRef="ID26"/>
+    <userTask id="ID23" name="Примять экзамен по теории">
+      <extensionElements>
+        <runa:property name="lane" value="Преподаватель"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID34" name="Действие1" sourceRef="ID23" targetRef="ID26"/>
+    <userTask id="ID24" name="Сдать экзамен по практикуму">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID32" name="Действие1" sourceRef="ID24" targetRef="ID27"/>
+    <userTask id="ID25" name="Принять экзамен по практикуму">
+      <extensionElements>
+        <runa:property name="lane" value="Преподаватель"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID33" name="Действие1" sourceRef="ID25" targetRef="ID27"/>
+    <userTask id="ID39" name="Ознакомиться с итоговой оценкой по экзамену">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID42" name="Действие1" sourceRef="ID39" targetRef="ID41"/>
+    <scriptTask id="ID48" name="Расчет итоговой оценки">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Итоговая оценка'=round_down(('Оценка за теорию'+'Оценка за практикум')/2)]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID49" name="Задача сценария1" sourceRef="ID48" targetRef="ID39"/>
+    <parallelGateway id="ID7" name="Параллельный шлюз 1"/>
+    <sequenceFlow id="ID10" name="Параллельный шлюз1" sourceRef="ID7" targetRef="ID9"/>
+    <sequenceFlow id="ID12" name="Параллельный шлюз2" sourceRef="ID7" targetRef="ID11"/>
+    <parallelGateway id="ID13" name="Параллельный шлюз 2"/>
+    <sequenceFlow id="ID17" name="Параллельный шлюз1" sourceRef="ID13" targetRef="ID16"/>
+    <parallelGateway id="ID18" name="Параллельный шлюз 3"/>
+    <sequenceFlow id="ID28" name="Параллельный шлюз1" sourceRef="ID18" targetRef="ID24"/>
+    <sequenceFlow id="ID29" name="Параллельный шлюз2" sourceRef="ID18" targetRef="ID25"/>
+    <parallelGateway id="ID19" name="Параллельный шлюз 4"/>
+    <sequenceFlow id="ID30" name="Параллельный шлюз1" sourceRef="ID19" targetRef="ID22"/>
+    <sequenceFlow id="ID31" name="Параллельный шлюз2" sourceRef="ID19" targetRef="ID23"/>
+    <parallelGateway id="ID26" name="Параллельный шлюз 5"/>
+    <sequenceFlow id="ID50" name="Параллельный шлюз1" sourceRef="ID26" targetRef="ID48"/>
+    <parallelGateway id="ID27" name="Параллельный шлюз 6"/>
+    <sequenceFlow id="ID51" name="Параллельный шлюз1" sourceRef="ID27" targetRef="ID48"/>
+    <endEvent id="ID41" name="Окончание"/>
+  </process>
+</definitions>

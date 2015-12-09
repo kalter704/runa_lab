@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="Пример 4-1">
+    <extensionElements>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="Process"/>
+    </extensionElements>
+    <laneSet id="laneSet1">
+      <lane id="ID1" name="Сотрудник">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID2" name="Директор">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Директор)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID3" name="Бот работы с данными">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Бот данных)]]></runa:property>
+        </extensionElements>
+      </lane>
+    </laneSet>
+    <startEvent id="ID4" name="Подать заявку на покупку услуги">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник"/>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="ID12" name="Начало1" sourceRef="ID4" targetRef="ID5"/>
+    <userTask id="ID5" name="Рассмотреть заявку на покупку услуги">
+      <extensionElements>
+        <runa:property name="lane" value="Директор"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID13" name="Одобрить" sourceRef="ID5" targetRef="ID7"/>
+    <sequenceFlow id="ID18" name="Отказать" sourceRef="ID5" targetRef="ID6"/>
+    <userTask id="ID6" name="Ознакомиться с отказом">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID19" name="Действие1" sourceRef="ID6" targetRef="ID11"/>
+    <userTask id="ID8" name="Ввести данные о заявке в учетную систему">
+      <extensionElements>
+        <runa:property name="lane" value="Бот работы с данными"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID17" name="Действие1" sourceRef="ID8" targetRef="ID10"/>
+    <userTask id="ID9" name="Ознакомиться с одобрением услуги">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID16" name="Действие1" sourceRef="ID9" targetRef="ID10"/>
+    <parallelGateway id="ID7" name="Параллельный шлюз 1"/>
+    <sequenceFlow id="ID14" name="Параллельный шлюз1" sourceRef="ID7" targetRef="ID8"/>
+    <sequenceFlow id="ID15" name="Параллельный шлюз2" sourceRef="ID7" targetRef="ID9"/>
+    <parallelGateway id="ID10" name="Параллельный шлюз 2"/>
+    <sequenceFlow id="ID20" name="Параллельный шлюз1" sourceRef="ID10" targetRef="ID11"/>
+    <endEvent id="ID11" name="Окончание"/>
+  </process>
+</definitions>

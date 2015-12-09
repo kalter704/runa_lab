@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="Комментарий директора">
+    <field-validator type="stringlength">
+      <param name="doTrim"><![CDATA[false]]></param>
+      <param name="maxLength"><![CDATA[300]]></param>
+      <param name="minLength"><![CDATA[0]]></param>
+    </field-validator>
+  </field>
+</validators>

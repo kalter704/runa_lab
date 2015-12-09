@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="Пример 2-2" notation="bpmn" rendered="graphiti" width="836" height="632" showActions="false" showGrid="false">
+  <node name="ID1" x="351" y="50" width="48" height="48">
+    <transition name="Начало1"/>
+    <textDecoration x="301" y="22"/>
+  </node>
+  <node name="ID2" x="308" y="142" width="132" height="108">
+    <transition name="Отказать">
+      <label x="-52" y="-44"/>
+      <bendpoint x="556" y="196"/>
+    </transition>
+    <transition name="Удовлетворить">
+      <label x="-24" y="-39"/>
+      <bendpoint x="242" y="195"/>
+    </transition>
+  </node>
+  <node name="ID3" x="491" y="340" width="132" height="128">
+    <transition name="Действие1">
+      <bendpoint x="556" y="461"/>
+    </transition>
+  </node>
+  <node name="ID4" x="96" y="356" width="134" height="132">
+    <transition name="Действие1">
+      <bendpoint x="163" y="533"/>
+    </transition>
+  </node>
+  <node name="ID17" x="266" y="356" width="132" height="118">
+    <transition name="Действие1">
+      <bendpoint x="331" y="533"/>
+    </transition>
+  </node>
+  <node name="ID14" x="219" y="260" width="48" height="48">
+    <transition name="Параллельный шлюз1">
+      <bendpoint x="331" y="283"/>
+    </transition>
+    <transition name="Параллельный шлюз2">
+      <bendpoint x="163" y="283"/>
+    </transition>
+  </node>
+  <node name="ID16" x="219" y="510" width="48" height="48">
+    <transition name="Параллельный шлюз1">
+      <bendpoint x="243" y="588"/>
+    </transition>
+  </node>
+  <node name="ID5" x="533" y="565" width="48" height="48">
+    <textDecoration x="530" y="613"/>
+  </node>
+</process-diagram>

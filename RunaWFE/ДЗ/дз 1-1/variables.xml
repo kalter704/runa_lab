@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<variables>
+  <variable name="Сотрудник подразделения-инициатора" scriptingName="Сотрудник_подразделения_инициатора" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="Руководитель подразделения-инициатора" scriptingName="Руководитель_подразделения_инициатора" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.RelationLabel"/>
+  <variable name="Сотрудник бюро пропусков" scriptingName="Сотрудник_бюро_пропусков" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="Сотрудник охраны" scriptingName="Сотрудник_охраны" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="Начальник охраны" scriptingName="Начальник_охраны" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="Начальник первого отдела" scriptingName="Начальник_первого_отдела" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="Word бот" scriptingName="Word_бот" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.BotLabel"/>
+  <variable name="ФИО посетителя" scriptingName="ФИО_посетителя" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="Наименование организации" scriptingName="Наименование_организации" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="Дата посещения" scriptingName="Дата_посещения" format="ru.runa.wfe.var.format.DateFormat"/>
+  <variable name="Время начала" scriptingName="Время_начала" format="ru.runa.wfe.var.format.TimeFormat"/>
+  <variable name="Дата и время начала" scriptingName="Дата_и_время_начала" format="ru.runa.wfe.var.format.DateTimeFormat"/>
+  <variable name="Время окончания работ" scriptingName="Время_окончания_работ" format="ru.runa.wfe.var.format.TimeFormat"/>
+  <variable name="Тип пропуска" scriptingName="Тип_пропуска" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="Вид выполняемых работ" scriptingName="Вид_выполняемых_работ" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Дата и время окончания" scriptingName="Дата_и_время_окончания" format="ru.runa.wfe.var.format.DateTimeFormat"/>
+  <variable name="Комментарии руководителя подразделения-инициатора" scriptingName="Комментарии_руководителя_подразделения_инициатора" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Пропуск" scriptingName="Пропуск" format="ru.runa.wfe.var.format.FileFormat"/>
+  <variable name="Текст объяснительной записки" scriptingName="Текст_объяснительной_записки" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Время прихода посетителя" scriptingName="Время_прихода_посетителя" format="ru.runa.wfe.var.format.DateTimeFormat"/>
+  <variable name="Время ухода посетителя" scriptingName="Время_ухода_посетителя" format="ru.runa.wfe.var.format.DateTimeFormat"/>
+  <variable name="Файл объяснительной" scriptingName="Файл_объяснительной" format="ru.runa.wfe.var.format.FileFormat"/>
+  <variable name="Текущая дата" scriptingName="Текущая_дата" format="ru.runa.wfe.var.format.DateFormat"/>
+  <variable name="ФИО сотрудника" scriptingName="ФИО_сотрудника" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="время время" scriptingName="время_время" format="ru.runa.wfe.var.format.DateTimeFormat"/>
+</variables>

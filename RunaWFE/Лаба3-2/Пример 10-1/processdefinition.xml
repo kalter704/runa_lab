@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="Пример 10-1">
+    <extensionElements>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="Process"/>
+    </extensionElements>
+    <laneSet id="laneSet1">
+      <lane id="ID2" name="Шеф-редактор">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID3" name="Верстальщик">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Верстальщик)]]></runa:property>
+        </extensionElements>
+      </lane>
+    </laneSet>
+    <startEvent id="ID1" name="Ввести данные для обложки журнала">
+      <extensionElements>
+        <runa:property name="lane" value="Шеф-редактор"/>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="ID5" name="Начало1" sourceRef="ID1" targetRef="ID4"/>
+    <userTask id="ID6" name="Корректировать рубрики">
+      <extensionElements>
+        <runa:property name="lane" value="Верстальщик"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID10" name="Действие1" sourceRef="ID6" targetRef="ID8"/>
+    <userTask id="ID11" name="Принятие решения о выпуске журнала">
+      <extensionElements>
+        <runa:property name="lane" value="Шеф-редактор"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID14" name="Утвердить номер журнала" sourceRef="ID11" targetRef="ID13"/>
+    <sequenceFlow id="ID15" name="Отправить всем заново" sourceRef="ID11" targetRef="ID4"/>
+    <scriptTask id="ID8" name="Задача сценария 1">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.office.doc.DocxHandler"/>
+        <runa:property name="config"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+
+<config strict="true">
+  <input path="processfile://ID8.template.docx"/>
+  <output variable="выпуск журнала" fileName="журнал.docx"/>
+</config>
+]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID12" name="Задача сценария1" sourceRef="ID8" targetRef="ID11"/>
+    <subProcess id="ID4" name="Создание контента для рубрик" runa:process="Пример 10-2">
+      <extensionElements>
+        <runa:property name="multiInstance" value="true"/>
+        <runa:variables>
+          <runa:variable name="тексты рубрик" mappedName="Контент рубрики" usage="read,write,multiinstancelink"/>
+          <runa:variable name="Комментарий Шеф-редактора" mappedName="Комментарий от Шеф-редактора" usage="read"/>
+          <runa:variable name="Редакторы" mappedName="Редактор" usage="multiinstancelink,group,text"/>
+        </runa:variables>
+      </extensionElements>
+    </subProcess>
+    <sequenceFlow id="ID7" name="Мультиподпроцесс1" sourceRef="ID4" targetRef="ID6"/>
+    <endEvent id="ID13" name="Окончание"/>
+    <textAnnotation id="ID9">
+      <text><![CDATA[Оформить выпуск, сборка номера журнала]]></text>
+    </textAnnotation>
+  </process>
+</definitions>

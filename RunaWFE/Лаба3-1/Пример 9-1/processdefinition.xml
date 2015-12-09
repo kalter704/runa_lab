@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="Пример 9-1">
+    <extensionElements>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="Process"/>
+    </extensionElements>
+    <laneSet id="laneSet1">
+      <lane id="ID2" name="Студент">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID3" name="Преподаватель">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[@Преподаватель(Студент)]]></runa:property>
+        </extensionElements>
+      </lane>
+    </laneSet>
+    <startEvent id="ID1" name="Сделать запрос на выполнение тестирования">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="ID29" name="Начало1" sourceRef="ID1" targetRef="ID28"/>
+    <userTask id="ID6" name="Выполнить тестирование">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID21" name="Действие1" sourceRef="ID6" targetRef="ID13"/>
+    <boundaryEvent id="ID7" name="Таймер 1" cancelActivity="true" attachedToRef="ID6">
+      <timerEventDefinition>
+        <timeDuration>#{Дата и время окончания тестирования} + 1 minutes</timeDuration>
+      </timerEventDefinition>
+    </boundaryEvent>
+    <sequenceFlow id="ID20" name="time-out-transition" sourceRef="ID7" targetRef="ID10"/>
+    <userTask id="ID11" name="Ознакомиться с уведомлением о закрытии тестирования">
+      <extensionElements>
+        <runa:property name="lane" value="Преподаватель"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID19" name="Действие1" sourceRef="ID11" targetRef="ID14"/>
+    <userTask id="ID12" name="Ознакомиться с уведомлением о закрытии тестирования">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID18" name="Действие1" sourceRef="ID12" targetRef="ID14"/>
+    <userTask id="ID13" name="Ознакомиться с выполненным тестированием">
+      <extensionElements>
+        <runa:property name="lane" value="Преподаватель"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID22" name="Действие1" sourceRef="ID13" targetRef="ID15"/>
+    <userTask id="ID28" name="Ввести данные тестирования">
+      <extensionElements>
+        <runa:property name="lane" value="Преподаватель"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID30" name="Действие1" sourceRef="ID28" targetRef="ID4"/>
+    <scriptTask id="ID4" name="Задача сценария 1">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Дата и время окончания тестирования'=current_date_time()+'Длительность тестирования';]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID9" name="Задача сценария1" sourceRef="ID4" targetRef="ID6"/>
+    <parallelGateway id="ID10" name="Параллельный шлюз 1"/>
+    <sequenceFlow id="ID16" name="Параллельный шлюз1" sourceRef="ID10" targetRef="ID12"/>
+    <sequenceFlow id="ID17" name="Параллельный шлюз2" sourceRef="ID10" targetRef="ID11"/>
+    <parallelGateway id="ID14" name="Параллельный шлюз 2"/>
+    <sequenceFlow id="ID23" name="Параллельный шлюз1" sourceRef="ID14" targetRef="ID15"/>
+    <endEvent id="ID15" name="Окончание"/>
+    <textAnnotation id="ID5">
+      <text><![CDATA[Определение даты и времени окончания тестирования]]></text>
+    </textAnnotation>
+  </process>
+</definitions>

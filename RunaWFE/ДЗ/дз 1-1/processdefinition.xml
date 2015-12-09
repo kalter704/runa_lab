@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="дз 1-1">
+    <extensionElements>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="Process"/>
+    </extensionElements>
+    <laneSet id="laneSet1">
+      <lane id="ID11" name="Сотрудник подразделения-инициатора">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID3" name="Руководитель подразделения-инициатора">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[@Руководитель(Сотрудник подразделения-инициатора)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID4" name="Сотрудник бюро пропусков">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Бюро пропусков)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID5" name="Сотрудник охраны">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Охрана)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID6" name="Начальник охраны">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Начальник охраны)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID7" name="Начальник первого отдела">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Начальник первого отдела)]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID93" name="Word бот">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[#Word бот]]></runa:property>
+        </extensionElements>
+      </lane>
+    </laneSet>
+    <startEvent id="ID16" name="Подача заявки на пропуск">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="ID18" name="Начало1" sourceRef="ID16" targetRef="ID17"/>
+    <sequenceFlow id="ID144" name="Начало2" sourceRef="ID16" targetRef="ID46"/>
+    <exclusiveGateway id="ID64" name="Исключающий шлюз 1"/>
+    <sequenceFlow id="ID81" name="Исключающий шлюз1" sourceRef="ID64" targetRef="ID80"/>
+    <exclusiveGateway id="ID76" name="Исключающий шлюз 2"/>
+    <sequenceFlow id="ID79" name="Исключающий шлюз1" sourceRef="ID76" targetRef="ID43"/>
+    <exclusiveGateway id="ID80" name="Исключающий шлюз 3"/>
+    <sequenceFlow id="ID83" name="Исключающий шлюз1" sourceRef="ID80" targetRef="ID73"/>
+    <userTask id="ID17" name="Согласование пропуска">
+      <extensionElements>
+        <runa:property name="lane" value="Руководитель подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID20" name="Отказать" sourceRef="ID17" targetRef="ID19"/>
+    <sequenceFlow id="ID32" name="Подтвердить" sourceRef="ID17" targetRef="ID22"/>
+    <userTask id="ID19" name="Ознакомление с отказом">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID78" name="Действие1" sourceRef="ID19" targetRef="ID76"/>
+    <userTask id="ID22" name="Оформление пропуска">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник бюро пропусков"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID33" name="Действие1" sourceRef="ID22" targetRef="ID28"/>
+    <userTask id="ID24" name="Осведомиться о готовности пропуска">
+      <extensionElements>
+        <runa:property name="lane" value="Руководитель подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID69" name="Действие1" sourceRef="ID24" targetRef="ID67"/>
+    <userTask id="ID25" name="Осведомиться о готовности пропуска">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID68" name="Действие1" sourceRef="ID25" targetRef="ID67"/>
+    <userTask id="ID26" name="Осведомиться о готовности пропуска">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник охраны"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID106" name="Действие1" sourceRef="ID26" targetRef="ID105"/>
+    <userTask id="ID34" name="Зафиксировать приход посетителя">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник охраны"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID87" name="Действие1" sourceRef="ID34" targetRef="ID86"/>
+    <boundaryEvent id="ID35" name="Таймер 1" cancelActivity="true" attachedToRef="ID34">
+      <timerEventDefinition>
+        <timeDuration>#{Дата и время окончания} + 0 minutes</timeDuration>
+      </timerEventDefinition>
+    </boundaryEvent>
+    <sequenceFlow id="ID37" name="time-out-transition" sourceRef="ID35" targetRef="ID36"/>
+    <userTask id="ID36" name="Уведомление о не приходе посетителя">
+      <extensionElements>
+        <runa:property name="lane" value="Руководитель подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID82" name="Действие1" sourceRef="ID36" targetRef="ID80"/>
+    <userTask id="ID39" name="Зафиксировать уход посетителя">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник охраны"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID90" name="Действие1" sourceRef="ID39" targetRef="ID89"/>
+    <boundaryEvent id="ID41" name="Таймер 1" cancelActivity="true" attachedToRef="ID39">
+      <timerEventDefinition>
+        <timeDuration>#{Дата и время окончания} + 0 minutes</timeDuration>
+      </timerEventDefinition>
+    </boundaryEvent>
+    <sequenceFlow id="ID44" name="time-out-transition" sourceRef="ID41" targetRef="ID42"/>
+    <userTask id="ID42" name="Получение уведомления о нарушении режима">
+      <extensionElements>
+        <runa:property name="lane" value="Начальник охраны"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID47" name="Действие1" sourceRef="ID42" targetRef="ID46"/>
+    <userTask id="ID46" name="Написать объяснительную">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID99" name="Действие1" sourceRef="ID46" targetRef="ID98"/>
+    <userTask id="ID51" name="Подписать объяснительную записку">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID58" name="Действие1" sourceRef="ID51" targetRef="ID52"/>
+    <userTask id="ID53" name="Сдать объяснительную записку в первый отдел">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID63" name="Действие1" sourceRef="ID53" targetRef="ID61"/>
+    <userTask id="ID54" name="Получить объяснительную записку">
+      <extensionElements>
+        <runa:property name="lane" value="Начальник первого отдела"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID62" name="Действие1" sourceRef="ID54" targetRef="ID61"/>
+    <userTask id="ID92" name="Формирование объяснительной записки">
+      <extensionElements>
+        <runa:property name="lane" value="Word бот"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID95" name="Действие1" sourceRef="ID92" targetRef="ID51"/>
+    <intermediateCatchEvent id="ID105" name="Таймер 1">
+      <timerEventDefinition>
+        <timeDuration>#{Дата посещения} + 0 minutes</timeDuration>
+      </timerEventDefinition>
+    </intermediateCatchEvent>
+    <sequenceFlow id="ID117" name="time-out-transition" sourceRef="ID105" targetRef="ID116"/>
+    <intermediateCatchEvent id="ID108" name="Таймер 2">
+      <timerEventDefinition>
+        <timeDuration>#{Дата и время начала} + 0 minutes</timeDuration>
+      </timerEventDefinition>
+    </intermediateCatchEvent>
+    <sequenceFlow id="ID121" name="time-out-transition" sourceRef="ID108" targetRef="ID120"/>
+    <scriptTask id="ID86" name="Задача сценария 1">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Время прихода посетителя'=current_date_time()]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID146" name="Задача сценария1" sourceRef="ID86" targetRef="ID39"/>
+    <scriptTask id="ID89" name="Задача сценария 2">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Время ухода посетителя'=current_date_time()]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID91" name="Задача сценария1" sourceRef="ID89" targetRef="ID64"/>
+    <scriptTask id="ID98" name="Задача сценария 3">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Текущая дата'=current_date()]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID102" name="Задача сценария1" sourceRef="ID98" targetRef="ID101"/>
+    <scriptTask id="ID101" name="Задача сценария 4">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.user.GetExecutorInfoHandler"/>
+        <runa:property name="config"><![CDATA[
+<config>
+  <input>
+    <param name="executor" variable="Сотрудник подразделения-инициатора"/>
+    <param name="format" value="fullName"/>
+  </input>
+  <output>
+    <param name="result" variable="ФИО сотрудника"/>
+  </output>
+</config>
+]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID103" name="Задача сценария1" sourceRef="ID101" targetRef="ID92"/>
+    <scriptTask id="ID111" name="Задача сценария 5">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['время время'=current_date_time()]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID113" name="Задача сценария1" sourceRef="ID111" targetRef="ID26"/>
+    <scriptTask id="ID116" name="Задача сценария 6">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Дата и время начала'=current_date()+'Время начала']]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID118" name="Задача сценария1" sourceRef="ID116" targetRef="ID108"/>
+    <scriptTask id="ID120" name="Задача сценария 7">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Дата и время окончания'=current_date()+'Время окончания работ']]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID145" name="Задача сценария1" sourceRef="ID120" targetRef="ID34"/>
+    <parallelGateway id="ID28" name="Параллельный шлюз 2"/>
+    <sequenceFlow id="ID30" name="Параллельный шлюз2" sourceRef="ID28" targetRef="ID25"/>
+    <sequenceFlow id="ID31" name="Параллельный шлюз3" sourceRef="ID28" targetRef="ID24"/>
+    <sequenceFlow id="ID112" name="Параллельный шлюз1" sourceRef="ID28" targetRef="ID111"/>
+    <parallelGateway id="ID52" name="Параллельный шлюз 2"/>
+    <sequenceFlow id="ID55" name="Параллельный шлюз1" sourceRef="ID52" targetRef="ID54"/>
+    <sequenceFlow id="ID56" name="Параллельный шлюз2" sourceRef="ID52" targetRef="ID53"/>
+    <parallelGateway id="ID61" name="Параллельный шлюз 3"/>
+    <sequenceFlow id="ID65" name="Параллельный шлюз1" sourceRef="ID61" targetRef="ID64"/>
+    <parallelGateway id="ID67" name="Параллельный шлюз 4"/>
+    <sequenceFlow id="ID75" name="Параллельный шлюз1" sourceRef="ID67" targetRef="ID73"/>
+    <sequenceFlow id="ID124" name="Параллельный шлюз2" sourceRef="ID67" targetRef="ID34"/>
+    <parallelGateway id="ID73" name="Параллельный шлюз 5"/>
+    <sequenceFlow id="ID77" name="Параллельный шлюз1" sourceRef="ID73" targetRef="ID76"/>
+    <endEvent id="ID43" name="Окончание"/>
+  </process>
+</definitions>

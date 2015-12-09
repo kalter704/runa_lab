@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<variables>
+  <variable name="Студент" scriptingName="Студент" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="Преподаватель" scriptingName="Преподаватель" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.RelationLabel"/>
+  <variable name="Вопросы" scriptingName="Вопросы" format="ru.runa.wfe.var.format.ListFormat(ru.runa.wfe.var.format.StringFormat)"/>
+  <variable name="Ответы" scriptingName="Ответы" format="ru.runa.wfe.var.format.ListFormat(ru.runa.wfe.var.format.StringFormat)"/>
+  <variable name="Дата и время окончания тестирования" scriptingName="Дата_и_время_окончания_тестирования" format="ru.runa.wfe.var.format.DateTimeFormat"/>
+  <variable name="Длительность тестирования" scriptingName="Длительность_тестирования" format="ru.runa.wfe.var.format.LongFormat"/>
+</variables>

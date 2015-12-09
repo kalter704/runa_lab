@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<variables>
+  <variable name="Инспектор курса" scriptingName="Инспектор_курса" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.ManualLabel"/>
+  <variable name="Преподаватель" scriptingName="Преподаватель" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.RelationLabel"/>
+  <variable name="Студент" scriptingName="Студент" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+</variables>

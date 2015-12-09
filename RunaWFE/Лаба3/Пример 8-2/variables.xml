@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<variables>
+  <variable name="отдел кадров" scriptingName="отдел_кадров" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="полученное сообщение" scriptingName="полученное_сообщение" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="id отправителя" scriptingName="id_отправителя" format="ru.runa.wfe.var.format.StringFormat"/>
+</variables>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="Текст объяснительной записки">
+    <field-validator type="required">
+      <message><![CDATA[Заполните поля]]></message>
+    </field-validator>
+  </field>
+</validators>

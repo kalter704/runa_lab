@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<variables>
+  <variable name="Сотрудник" scriptingName="Сотрудник" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="Директор" scriptingName="Директор" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="Бот работы с данными" scriptingName="Бот_работы_с_данными" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFUsersLabel"/>
+  <variable name="Название услуги" scriptingName="Название_услуги" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="Поставщик услуги" scriptingName="Поставщик_услуги" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="Дата начала действия услуги" scriptingName="Дата_начала_действия_услуги" format="ru.runa.wfe.var.format.DateFormat"/>
+  <variable name="Дата окончания действия услуги" scriptingName="Дата_окончания_действия_услуги" format="ru.runa.wfe.var.format.DateFormat"/>
+  <variable name="Стоимость услуги" scriptingName="Стоимость_услуги" format="ru.runa.wfe.var.format.DoubleFormat"/>
+  <variable name="Комментарий" scriptingName="Комментарий" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Комментарий директора" scriptingName="Комментарий_директора" format="ru.runa.wfe.var.format.TextFormat"/>
+</variables>

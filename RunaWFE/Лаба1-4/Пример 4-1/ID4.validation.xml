@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <validator type="expression">
+    <message><![CDATA[Дата окончания действия услуги не может быть раньше даты начала действия услуги]]></message>
+    <param name="expression"><![CDATA[Дата_окончания_действия_услуги.getTime() >= Дата_начала_действия_услуги.getTime()]]></param>
+  </validator>
+  <field name="Комментарий">
+    <field-validator type="stringlength">
+      <param name="doTrim"><![CDATA[false]]></param>
+      <param name="maxLength"><![CDATA[100]]></param>
+      <param name="minLength"><![CDATA[0]]></param>
+    </field-validator>
+  </field>
+  <field name="Стоимость услуги">
+    <field-validator type="number">
+      <param name="min"><![CDATA[0]]></param>
+      <param name="inclusive"><![CDATA[true]]></param>
+      <param name="max"><![CDATA[25000]]></param>
+    </field-validator>
+    <field-validator type="required"/>
+  </field>
+  <field name="Дата окончания действия услуги">
+    <field-validator type="dateRelativeToCurrent">
+      <param name="min"><![CDATA[0]]></param>
+      <param name="max"><![CDATA[366]]></param>
+    </field-validator>
+    <field-validator type="required"/>
+  </field>
+  <field name="Поставщик услуги">
+    <field-validator type="required">
+      <message><![CDATA[йукенгшщ]]></message>
+    </field-validator>
+  </field>
+  <field name="Название услуги">
+    <field-validator type="required">
+      <message><![CDATA[Назнвание услуги - обязательное поле]]></message>
+    </field-validator>
+  </field>
+  <field name="Дата начала действия услуги">
+    <field-validator type="dateRelativeToCurrent">
+      <message><![CDATA[Дата не может быть в прошлом, или более, чем на 30 дней превышать текущую]]></message>
+      <param name="min"><![CDATA[0]]></param>
+      <param name="max"><![CDATA[30]]></param>
+      <param name="useBusinessCalendar"><![CDATA[false]]></param>
+    </field-validator>
+    <field-validator type="required">
+      <message><![CDATA[фЫАФЫВАФЫАФЫАфывфывфыв]]></message>
+    </field-validator>
+  </field>
+</validators>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="Пример 10-2">
+    <extensionElements>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="Process"/>
+    </extensionElements>
+    <laneSet id="laneSet1">
+      <lane id="ID1" name="Редактор">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+      </lane>
+      <lane id="ID2" name="Обозреватель">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+      </lane>
+    </laneSet>
+    <startEvent id="ID3" name="Начало">
+      <extensionElements>
+        <runa:property name="lane" value="Редактор"/>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="ID10" name="Начало1" sourceRef="ID3" targetRef="ID4"/>
+    <userTask id="ID4" name="Выбрать исполнителя для создания контента рубрики">
+      <extensionElements>
+        <runa:property name="lane" value="Редактор"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID11" name="Действие1" sourceRef="ID4" targetRef="ID5"/>
+    <userTask id="ID5" name="Создание внутренний контен рубрики">
+      <extensionElements>
+        <runa:property name="lane" value="Обозреватель"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID12" name="Действие1" sourceRef="ID5" targetRef="ID6"/>
+    <userTask id="ID8" name="Утвердить текст рубрики">
+      <extensionElements>
+        <runa:property name="lane" value="Редактор"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID14" name="Действие1" sourceRef="ID8" targetRef="ID9"/>
+    <scriptTask id="ID6" name="Сформировать текст рубрики">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.GroovyActionHandler"/>
+        <runa:property name="config"><![CDATA[Контент_рубрики =  "От обозревателя " + Обозреватель.getFullName();
+Контент_рубрики +=  "\r\n\r\n";
+Контент_рубрики += Внутренний_контент;
+Контент_рубрики +=  "\r\n\r\n";]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="ID13" name="Задача сценария1" sourceRef="ID6" targetRef="ID8"/>
+    <endEvent id="ID9" name="Окончание"/>
+    <textAnnotation id="ID7">
+      <text><![CDATA[Сформировать текст рубрики]]></text>
+    </textAnnotation>
+  </process>
+</definitions>

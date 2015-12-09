@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<variables>
+  <variable name="Редактор" scriptingName="Редактор" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="Обозреватель" scriptingName="Обозреватель" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="Внутренний контент" scriptingName="Внутренний_контент" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Контент рубрики" scriptingName="Контент_рубрики" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Обозреватели" scriptingName="Обозреватели" format="ru.runa.wfe.var.format.GroupFormat" defaultValue="Обозреватели"/>
+  <variable name="Комментарий от Шеф-редактора" scriptingName="Комментарий_от_Шеф_редактора" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Комментарий редактора" scriptingName="Комментарий_редактора" format="ru.runa.wfe.var.format.TextFormat"/>
+</variables>

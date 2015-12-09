@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="дз 1-1" notation="bpmn" rendered="graphiti" width="1459" height="2011" showActions="false" showGrid="false">
+  <node name="ID16" x="522" y="49" width="48" height="48">
+    <transition name="Начало1"/>
+    <transition name="Начало2"/>
+    <textDecoration x="444" y="21"/>
+  </node>
+  <node name="ID17" x="471" y="120" width="151" height="101">
+    <transition name="Отказать">
+      <label x="17" y="-20"/>
+      <bendpoint x="335" y="170"/>
+    </transition>
+    <transition name="Подтвердить">
+      <label x="-72" y="-20"/>
+      <bendpoint x="760" y="170"/>
+    </transition>
+  </node>
+  <node name="ID19" x="260" y="230" width="151" height="101">
+    <transition name="Действие1">
+      <bendpoint x="335" y="1883"/>
+    </transition>
+  </node>
+  <node name="ID22" x="680" y="230" width="160" height="101">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID24" x="480" y="440" width="161" height="111">
+    <transition name="Действие1">
+      <bendpoint x="560" y="604"/>
+    </transition>
+  </node>
+  <node name="ID25" x="684" y="440" width="151" height="111">
+    <transition name="Действие1">
+      <bendpoint x="759" y="604"/>
+    </transition>
+  </node>
+  <node name="ID26" x="1060" y="440" width="151" height="111">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID34" x="1060" y="580" width="151" height="101">
+    <transition name="Действие1">
+      <bendpoint x="1222" y="629"/>
+    </transition>
+  </node>
+  <node name="ID35" x="1090" y="650" width="48" height="48">
+    <transition name="time-out-transition">
+      <label x="-18" y="-18"/>
+      <bendpoint x="810" y="668"/>
+    </transition>
+  </node>
+  <node name="ID36" x="736" y="710" width="151" height="101">
+    <transition name="Действие1">
+      <bendpoint x="812" y="1754"/>
+    </transition>
+  </node>
+  <node name="ID39" x="1146" y="760" width="151" height="101">
+    <transition name="Действие1">
+      <bendpoint x="1328" y="811"/>
+    </transition>
+  </node>
+  <node name="ID41" x="1256" y="810" width="48" height="48">
+    <transition name="time-out-transition">
+      <label x="-64" y="-19"/>
+      <bendpoint x="1041" y="849"/>
+    </transition>
+  </node>
+  <node name="ID42" x="966" y="910" width="151" height="101">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID46" x="966" y="1040" width="151" height="91">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID51" x="966" y="1270" width="151" height="91">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID53" x="858" y="1470" width="151" height="101">
+    <transition name="Действие1">
+      <bendpoint x="933" y="1623"/>
+    </transition>
+  </node>
+  <node name="ID54" x="1074" y="1470" width="151" height="101">
+    <transition name="Действие1">
+      <bendpoint x="1149" y="1624"/>
+    </transition>
+  </node>
+  <node name="ID92" x="970" y="1160" width="151" height="94">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID86" x="1195" y="690" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID89" x="1310" y="890" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1">
+      <bendpoint x="1327" y="1671"/>
+    </transition>
+  </node>
+  <node name="ID98" x="1180" y="1130" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID101" x="1180" y="1200" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID111" x="1118" y="366" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID116" x="1350" y="460" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID120" x="1230" y="547" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID28" x="736" y="360" width="48" height="48">
+    <transition name="Параллельный шлюз2"/>
+    <transition name="Параллельный шлюз3">
+      <bendpoint x="562" y="384"/>
+    </transition>
+    <transition name="Параллельный шлюз1"/>
+  </node>
+  <node name="ID52" x="1018" y="1400" width="48" height="48">
+    <transition name="Параллельный шлюз1">
+      <bendpoint x="1149" y="1423"/>
+    </transition>
+    <transition name="Параллельный шлюз2">
+      <bendpoint x="934" y="1424"/>
+    </transition>
+  </node>
+  <node name="ID61" x="1018" y="1600" width="48" height="48">
+    <transition name="Параллельный шлюз1">
+      <bendpoint x="1042" y="1671"/>
+    </transition>
+  </node>
+  <node name="ID67" x="640" y="580" width="48" height="48">
+    <transition name="Параллельный шлюз1">
+      <bendpoint x="664" y="1823"/>
+    </transition>
+    <transition name="Параллельный шлюз2"/>
+  </node>
+  <node name="ID73" x="811" y="1800" width="48" height="48">
+    <transition name="Параллельный шлюз1">
+      <bendpoint x="835" y="1884"/>
+    </transition>
+  </node>
+  <node name="ID64" x="1224" y="1647" width="48" height="48">
+    <transition name="Исключающий шлюз1">
+      <bendpoint x="1247" y="1753"/>
+    </transition>
+  </node>
+  <node name="ID76" x="594" y="1860" width="48" height="48">
+    <transition name="Исключающий шлюз1"/>
+  </node>
+  <node name="ID80" x="980" y="1730" width="48" height="48">
+    <transition name="Исключающий шлюз1">
+      <bendpoint x="1002" y="1824"/>
+    </transition>
+  </node>
+  <node name="ID105" x="1263" y="500" width="48" height="48">
+    <transition name="time-out-transition"/>
+  </node>
+  <node name="ID108" x="1272" y="570" width="48" height="48">
+    <transition name="time-out-transition">
+      <label x="56" y="9"/>
+    </transition>
+  </node>
+  <node name="ID43" x="594" y="1944" width="48" height="48">
+    <textDecoration x="591" y="1992"/>
+  </node>
+</process-diagram>

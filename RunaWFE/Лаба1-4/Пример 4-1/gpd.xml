@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="Пример 4-1" notation="bpmn" rendered="graphiti" width="836" height="510" showActions="false" showGrid="false">
+  <node name="ID4" x="390" y="33" width="48" height="48">
+    <transition name="Начало1"/>
+    <textDecoration x="330" y="5"/>
+  </node>
+  <node name="ID5" x="349" y="108" width="132" height="94">
+    <transition name="Одобрить">
+      <label x="6" y="-12"/>
+    </transition>
+    <transition name="Отказать">
+      <label x="-46" y="-12"/>
+    </transition>
+  </node>
+  <node name="ID6" x="620" y="103" width="132" height="104">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID7" x="391" y="233" width="48" height="48">
+    <transition name="Параллельный шлюз1"/>
+    <transition name="Параллельный шлюз2"/>
+  </node>
+  <node name="ID8" x="438" y="303" width="132" height="111">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID9" x="265" y="303" width="132" height="111">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID10" x="391" y="443" width="48" height="48">
+    <transition name="Параллельный шлюз1"/>
+  </node>
+  <node name="ID11" x="662" y="443" width="48" height="48">
+    <textDecoration x="659" y="491"/>
+  </node>
+</process-diagram>

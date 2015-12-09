@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="Комментарии руководителя подразделения-инициатора">
+    <field-validator type="required">
+      <transition-context>
+        <on><![CDATA[Отказать]]></on>
+      </transition-context>
+      <message><![CDATA[Введите комментарий]]></message>
+    </field-validator>
+  </field>
+</validators>

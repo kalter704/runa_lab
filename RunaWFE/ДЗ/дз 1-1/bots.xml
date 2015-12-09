@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bottasks>
+  <task id="ID92" class="ru.runa.wfe.office.doc.DocxHandler" botTaskName="Оформление объяснительной">
+    <config> 
+      <input> 
+        <param name="полное имя сотрудника" value="ФИО сотрудника"/>  
+        <param name="дата" variable="Текущая дата"/>  
+        <param name="текст объясн" variable="Текст объяснительной записки"/>  
+        <param name="полное имя" variable="ФИО сотрудника"/> 
+      </input>  
+      <output> 
+        <param name="объясн" variable="Файл объяснительной"/> 
+      </output> 
+    </config>
+  </task>
+</bottasks>

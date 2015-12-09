@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<variables>
+  <variable name="Шеф-редактор" scriptingName="Шеф_редактор" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="Верстальщик" scriptingName="Верстальщик" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="тексты рубрик" scriptingName="тексты_рубрик" format="ru.runa.wfe.var.format.ListFormat(ru.runa.wfe.var.format.TextFormat)"/>
+  <variable name="выпуск журнала" scriptingName="выпуск_журнала" format="ru.runa.wfe.var.format.FileFormat"/>
+  <variable name="номер журнала" scriptingName="номер_журнала" format="ru.runa.wfe.var.format.LongFormat"/>
+  <variable name="год" scriptingName="год" format="ru.runa.wfe.var.format.LongFormat"/>
+  <variable name="месяц" scriptingName="месяц" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="постер" scriptingName="постер" format="ru.runa.wfe.var.format.FileFormat"/>
+  <variable name="Комментарий Шеф-редактора" scriptingName="Комментарий_Шеф_редактора" format="ru.runa.wfe.var.format.TextFormat"/>
+</variables>

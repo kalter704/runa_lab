@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="Вопросы">
+    <field-validator type="required">
+      <message><![CDATA[Впр обяз]]></message>
+    </field-validator>
+  </field>
+  <field name="Длительность тестирования">
+    <field-validator type="number">
+      <message><![CDATA[йцукенг 1]]></message>
+      <param name="min"><![CDATA[1]]></param>
+      <param name="inclusive"><![CDATA[true]]></param>
+    </field-validator>
+    <field-validator type="required">
+      <message><![CDATA[апывапыв время!!!]]></message>
+    </field-validator>
+  </field>
+</validators>

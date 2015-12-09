@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="Описание выполненных работ">
+    <field-validator type="required"/>
+  </field>
+  <field name="Сотрудник">
+    <field-validator type="required"/>
+  </field>
+  <field name="Размер премии">
+    <field-validator type="required"/>
+  </field>
+</validators>

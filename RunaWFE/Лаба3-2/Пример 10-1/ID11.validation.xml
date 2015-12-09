@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="Комментарий Шеф-редактора">
+    <field-validator type="required">
+      <transition-context>
+        <on><![CDATA[Отправить всем заново]]></on>
+      </transition-context>
+      <message><![CDATA[фцукпукфуафцуа]]></message>
+    </field-validator>
+  </field>
+</validators>

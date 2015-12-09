@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="Тип пропуска">
+    <field-validator type="required">
+      <message><![CDATA[Введите тип пропуска]]></message>
+    </field-validator>
+  </field>
+  <field name="Наименование организации"/>
+  <field name="Вид выполняемых работ">
+    <field-validator type="required">
+      <message><![CDATA[Введите вид работ ]]></message>
+    </field-validator>
+  </field>
+  <field name="Время окончания работ">
+    <field-validator type="required">
+      <message><![CDATA[Введите время окончания работ]]></message>
+    </field-validator>
+  </field>
+  <field name="Время начала">
+    <field-validator type="required">
+      <message><![CDATA[Введите время начала работ]]></message>
+    </field-validator>
+  </field>
+  <field name="Дата посещения">
+    <field-validator type="required">
+      <message><![CDATA[Дата обязательна]]></message>
+    </field-validator>
+  </field>
+  <field name="ФИО посетителя">
+    <field-validator type="required">
+      <message><![CDATA[Введите ФИО]]></message>
+    </field-validator>
+  </field>
+</validators>

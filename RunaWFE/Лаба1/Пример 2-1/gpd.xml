@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="Пример 2-1" notation="bpmn" rendered="graphiti" width="853" height="591" showActions="false" showGrid="false">
+  <node name="ID1" x="351" y="50" width="48" height="48">
+    <transition name="Начало1"/>
+    <textDecoration x="302" y="22"/>
+  </node>
+  <node name="ID2" x="308" y="142" width="132" height="108">
+    <transition name="Отказать">
+      <label x="-52" y="-44"/>
+      <bendpoint x="501" y="197"/>
+    </transition>
+    <transition name="Удовлетворить">
+      <label x="-24" y="-39"/>
+      <bendpoint x="239" y="197"/>
+    </transition>
+  </node>
+  <node name="ID3" x="435" y="295" width="132" height="128">
+    <transition name="Действие1">
+      <bendpoint x="500" y="449"/>
+    </transition>
+  </node>
+  <node name="ID4" x="173" y="293" width="134" height="132">
+    <transition name="Действие1">
+      <bendpoint x="239" y="449"/>
+    </transition>
+  </node>
+  <node name="ID5" x="349" y="426" width="48" height="48">
+    <textDecoration x="346" y="474"/>
+  </node>
+</process-diagram>

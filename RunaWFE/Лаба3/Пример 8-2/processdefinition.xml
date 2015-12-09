@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="Пример 8-2">
+    <extensionElements>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="Process"/>
+    </extensionElements>
+    <laneSet id="laneSet1">
+      <lane id="ID10" name="отдел кадров">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+      </lane>
+    </laneSet>
+    <startEvent id="ID1" name="Начало">
+      <extensionElements>
+        <runa:property name="lane" value="отдел кадров"/>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="ID6" name="Начало1" sourceRef="ID1" targetRef="ID2"/>
+    <userTask id="ID3" name="Редактировать полученное сообщение">
+      <extensionElements>
+        <runa:property name="lane" value="отдел кадров"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID8" name="Действие1" sourceRef="ID3" targetRef="ID4"/>
+    <sendTask id="ID4" name="Отправить сообщение 1" runa:timeDuration="1 days">
+      <extensionElements>
+        <runa:variables>
+          <runa:variable name="processId" mappedName="${id отправителя}" usage="selector"/>
+          <runa:variable name="полученное сообщение" mappedName="полученное сообщение" usage="read"/>
+        </runa:variables>
+      </extensionElements>
+    </sendTask>
+    <sequenceFlow id="ID9" name="Отправить сообщение1" sourceRef="ID4" targetRef="ID5"/>
+    <receiveTask id="ID2" name="Получить сообщение 1">
+      <extensionElements>
+        <runa:variables>
+          <runa:variable name="processDefinitionName" mappedName="${currentDefinitionName}" usage="selector"/>
+          <runa:variable name="id отправителя" mappedName="id отправителя" usage="read"/>
+          <runa:variable name="полученное сообщение" mappedName="отправленное сообщение" usage="read"/>
+        </runa:variables>
+      </extensionElements>
+    </receiveTask>
+    <sequenceFlow id="ID7" name="Получить сообщение1" sourceRef="ID2" targetRef="ID3"/>
+    <endEvent id="ID5" name="Окончание"/>
+  </process>
+</definitions>

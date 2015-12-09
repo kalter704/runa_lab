@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="Пример 5-1" notation="bpmn" rendered="graphiti" width="836" height="828" showActions="false" showGrid="false">
+  <node name="ID1" x="130" y="50" width="48" height="48">
+    <transition name="Начало1"/>
+    <textDecoration x="89" y="22"/>
+  </node>
+  <node name="ID2" x="210" y="56" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID3" x="270" y="56" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID4" x="330" y="56" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID5" x="390" y="56" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID6" x="384" y="110" width="48" height="48">
+    <transition name="Параллельный шлюз1"/>
+    <transition name="Параллельный шлюз2"/>
+  </node>
+  <node name="ID7" x="500" y="110" width="171" height="111">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID8" x="160" y="110" width="149" height="121">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID9" x="520" y="250" width="132" height="91">
+    <transition name="Одобрить">
+      <label x="-56" y="-25"/>
+    </transition>
+    <transition name="Отказать">
+      <label x="-4" y="-60"/>
+    </transition>
+  </node>
+  <node name="ID10" x="660" y="460" width="141" height="111">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID11" x="425" y="358" width="48" height="48">
+    <transition name="Параллельный шлюз1"/>
+    <transition name="Параллельный шлюз2"/>
+  </node>
+  <node name="ID12" x="472" y="460" width="132" height="111">
+    <transition name="Подпроцесс1"/>
+  </node>
+  <node name="ID13" x="294" y="460" width="132" height="111">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID14" x="425" y="600" width="48" height="48">
+    <transition name="Параллельный шлюз1"/>
+  </node>
+  <node name="ID15" x="590" y="640" width="48" height="48">
+    <transition name="Исключающий шлюз1"/>
+  </node>
+  <node name="ID16" x="264" y="687" width="48" height="48">
+    <transition name="Параллельный шлюз1"/>
+  </node>
+  <node name="ID17" x="264" y="761" width="48" height="48">
+    <textDecoration x="261" y="809"/>
+  </node>
+</process-diagram>

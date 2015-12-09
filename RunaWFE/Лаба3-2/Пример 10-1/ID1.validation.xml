@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="номер журнала">
+    <field-validator type="required">
+      <message><![CDATA[йцуйцу]]></message>
+    </field-validator>
+  </field>
+  <field name="постер">
+    <field-validator type="fileExtension">
+      <message><![CDATA[gaewrgaergaergaWREGAERG]]></message>
+      <param name="extension"><![CDATA[jpeg, jpg, png]]></param>
+    </field-validator>
+    <field-validator type="required">
+      <message><![CDATA[пфцуфцуацуа]]></message>
+    </field-validator>
+  </field>
+  <field name="год">
+    <field-validator type="required">
+      <message><![CDATA[пйуайцафы]]></message>
+    </field-validator>
+  </field>
+  <field name="месяц">
+    <field-validator type="required">
+      <message><![CDATA[пцфуафцуа]]></message>
+    </field-validator>
+  </field>
+</validators>

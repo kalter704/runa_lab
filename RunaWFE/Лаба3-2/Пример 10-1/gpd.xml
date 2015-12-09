@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="Пример 10-1" notation="bpmn" rendered="graphiti" width="1407" height="707" showActions="false" showGrid="false">
+  <node name="ID1" x="651" y="40" width="48" height="48">
+    <transition name="Начало1"/>
+    <textDecoration x="579" y="12"/>
+  </node>
+  <node name="ID6" x="604" y="250" width="143" height="91">
+    <transition name="Действие1"/>
+  </node>
+  <node name="ID11" x="594" y="440" width="161" height="111">
+    <transition name="Утвердить номер журнала">
+      <label x="18" y="-12"/>
+    </transition>
+    <transition name="Отправить всем заново">
+      <label x="-82" y="179"/>
+      <bendpoint x="531" y="494"/>
+      <bendpoint x="530" y="175"/>
+    </transition>
+  </node>
+  <node name="ID8" x="658" y="380" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="ID4" x="600" y="130" width="152" height="91">
+    <transition name="Мультиподпроцесс1"/>
+  </node>
+  <node name="ID13" x="652" y="574" width="48" height="48">
+    <textDecoration x="649" y="622"/>
+  </node>
+  <node name="ID9" x="720" y="367" width="96" height="61"/>
+</process-diagram>

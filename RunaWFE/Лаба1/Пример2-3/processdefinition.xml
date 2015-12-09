@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="Пример2-3">
+    <extensionElements>
+      <runa:property name="showSwimlane" value="vertical"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="Process"/>
+    </extensionElements>
+    <laneSet id="laneSet1">
+      <lane id="ID1" name="Инспектор курса">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[ru.runa.wfe.extension.orgfunction.ExecutorByNameFunction(Администрация курса)]]></runa:property>
+        </extensionElements>
+        <flowNodeRef>ID13</flowNodeRef>
+      </lane>
+      <lane id="ID2" name="Преподаватель">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[@Преподаватель(Студент)]]></runa:property>
+        </extensionElements>
+        <flowNodeRef>ID5</flowNodeRef>
+        <flowNodeRef>ID8</flowNodeRef>
+        <flowNodeRef>ID15</flowNodeRef>
+      </lane>
+      <lane id="ID3" name="Студент">
+        <extensionElements>
+          <runa:property name="class" value="ru.runa.wfe.extension.assign.DefaultAssignmentHandler"/>
+          <runa:property name="config"><![CDATA[]]></runa:property>
+        </extensionElements>
+        <flowNodeRef>ID4</flowNodeRef>
+        <flowNodeRef>ID7</flowNodeRef>
+        <flowNodeRef>ID11</flowNodeRef>
+        <flowNodeRef>ID18</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="ID4" name="Направить просьбу о зачете">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </startEvent>
+    <sequenceFlow id="ID6" name="Начало1" sourceRef="ID4" targetRef="ID5"/>
+    <userTask id="ID5" name="Рассмотреть просьбу о зачете">
+      <extensionElements>
+        <runa:property name="lane" value="Преподаватель"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID9" name="Отказать" sourceRef="ID5" targetRef="ID7"/>
+    <sequenceFlow id="ID10" name="Удовлетворить" sourceRef="ID5" targetRef="ID8"/>
+    <userTask id="ID7" name="Ознакомиться с отрицательным решением преподавателя">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID19" name="Действие1" sourceRef="ID7" targetRef="ID18"/>
+    <userTask id="ID11" name="Ознакомиться с положительным решением преподавателя">
+      <extensionElements>
+        <runa:property name="lane" value="Студент"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID16" name="Действие1" sourceRef="ID11" targetRef="ID15"/>
+    <userTask id="ID13" name="Оформить в ведомости сдачу зачета студентом">
+      <extensionElements>
+        <runa:property name="lane" value="Инспектор курса"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="ID17" name="Действие1" sourceRef="ID13" targetRef="ID15"/>
+    <parallelGateway id="ID8" name="Параллельный шлюз 1"/>
+    <sequenceFlow id="ID12" name="Параллельный шлюз1" sourceRef="ID8" targetRef="ID11"/>
+    <sequenceFlow id="ID14" name="Параллельный шлюз2" sourceRef="ID8" targetRef="ID13"/>
+    <parallelGateway id="ID15" name="Параллельный шлюз 2"/>
+    <sequenceFlow id="ID20" name="Параллельный шлюз1" sourceRef="ID15" targetRef="ID18"/>
+    <endEvent id="ID18" name="Окончание"/>
+  </process>
+</definitions>

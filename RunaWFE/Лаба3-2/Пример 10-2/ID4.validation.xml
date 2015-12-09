@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <field name="Комментарий редактора"/>
+  <field name="Обозреватель">
+    <field-validator type="required">
+      <message><![CDATA[фпафукпцуафыва]]></message>
+    </field-validator>
+  </field>
+</validators>

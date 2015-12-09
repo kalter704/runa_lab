@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<variables>
+  <variable name="Руководитель" scriptingName="Руководитель" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="Сотрудник" scriptingName="Сотрудник" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="Отдел кадров" scriptingName="Отдел_кадров" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="Директор" scriptingName="Директор" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="Бухгалтер" scriptingName="Бухгалтер" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true" editor="SwimlaneElement.WFFunctionsGroupLabel/SwimlaneElement.WFGroupsLabel"/>
+  <variable name="Word бот" scriptingName="Word_бот" format="ru.runa.wfe.var.format.ExecutorFormat" swimlane="true"/>
+  <variable name="ФИО сотрудника" scriptingName="ФИО_сотрудника" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="ФИО сотрудника 3" scriptingName="ФИО_сотрудника_3" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="ФИО директора" scriptingName="ФИО_директора" format="ru.runa.wfe.var.format.StringFormat"/>
+  <variable name="Размер премии" scriptingName="Размер_премии" format="ru.runa.wfe.var.format.DoubleFormat"/>
+  <variable name="Описание выполненных работ" scriptingName="Описание_выполненных_работ" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Текущая дата" scriptingName="Текущая_дата" format="ru.runa.wfe.var.format.DateFormat"/>
+  <variable name="Комментарий директора" scriptingName="Комментарий_директора" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Номер приказа" scriptingName="Номер_приказа" format="ru.runa.wfe.var.format.LongFormat"/>
+  <variable name="Текст приказа о премировании" scriptingName="Текст_приказа_о_премировании" format="ru.runa.wfe.var.format.TextFormat"/>
+  <variable name="Служебная записка" scriptingName="Служебная_записка" format="ru.runa.wfe.var.format.FileFormat"/>
+  <variable name="Приказ" scriptingName="Приказ" format="ru.runa.wfe.var.format.FileFormat"/>
+  <variable name="Отношение" scriptingName="Отношение" format="ru.runa.wfe.var.format.StringFormat" defaultValue="Руководитель"/>
+</variables>
