@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="дз 1-3">
+    <extensionElements>
+      <runa:property name="id" value="sub2"/>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="EmbeddedSubprocess"/>
+    </extensionElements>
+    <startEvent id="sub2.ID1" name="Начало">
+      <extensionElements/>
+    </startEvent>
+    <sequenceFlow id="sub2.ID14" name="Начало1" sourceRef="sub2.ID1" targetRef="sub2.ID3"/>
+    <userTask id="sub2.ID3" name="Получение уведомления о нарушении режима">
+      <extensionElements>
+        <runa:property name="lane" value="Начальник охраны"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub2.ID15" name="Действие1" sourceRef="sub2.ID3" targetRef="sub2.ID4"/>
+    <userTask id="sub2.ID4" name="Написать объяснительную">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub2.ID16" name="Действие1" sourceRef="sub2.ID4" targetRef="sub2.ID5"/>
+    <userTask id="sub2.ID7" name="Формирование объяснительной записки">
+      <extensionElements>
+        <runa:property name="lane" value="WorddBot"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub2.ID19" name="Действие1" sourceRef="sub2.ID7" targetRef="sub2.ID8"/>
+    <userTask id="sub2.ID8" name="Подписать объяснительную записку">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub2.ID20" name="Действие1" sourceRef="sub2.ID8" targetRef="sub2.ID9"/>
+    <userTask id="sub2.ID10" name="Сдать объяснительную записку в первый отдел">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub2.ID24" name="Действие1" sourceRef="sub2.ID10" targetRef="sub2.ID12"/>
+    <userTask id="sub2.ID11" name="Получить объяснительную записку">
+      <extensionElements>
+        <runa:property name="lane" value="Начальник первого отдела"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub2.ID23" name="Действие1" sourceRef="sub2.ID11" targetRef="sub2.ID12"/>
+    <scriptTask id="sub2.ID5" name="Задача сценария 1">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Текущая дата'=current_date()]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="sub2.ID17" name="Задача сценария1" sourceRef="sub2.ID5" targetRef="sub2.ID6"/>
+    <scriptTask id="sub2.ID6" name="Задача сценария 2">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.user.GetExecutorInfoHandler"/>
+        <runa:property name="config"><![CDATA[
+<config>
+  <input>
+    <param name="executor" variable="Сотрудник подразделения-инициатора"/>
+    <param name="format" value="fullName"/>
+  </input>
+  <output>
+    <param name="result" variable="ФИО сотрудника"/>
+  </output>
+</config>
+]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="sub2.ID18" name="Задача сценария1" sourceRef="sub2.ID6" targetRef="sub2.ID7"/>
+    <parallelGateway id="sub2.ID9" name="Параллельный шлюз 1"/>
+    <sequenceFlow id="sub2.ID21" name="Параллельный шлюз1" sourceRef="sub2.ID9" targetRef="sub2.ID11"/>
+    <sequenceFlow id="sub2.ID22" name="Параллельный шлюз2" sourceRef="sub2.ID9" targetRef="sub2.ID10"/>
+    <parallelGateway id="sub2.ID12" name="Параллельный шлюз 2"/>
+    <sequenceFlow id="sub2.ID25" name="Параллельный шлюз1" sourceRef="sub2.ID12" targetRef="sub2.ID2"/>
+    <endEvent id="sub2.ID2" name="Завершение потока 1">
+      <extensionElements>
+        <runa:property name="token" value="true"/>
+      </extensionElements>
+    </endEvent>
+  </process>
+</definitions>

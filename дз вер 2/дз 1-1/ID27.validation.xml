@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <validator type="expression">
+    <message><![CDATA[Проверка данных не пройдена]]></message>
+    <param name="expression"><![CDATA[Время_начала_работ.getTime() < Время_окончания_работ.getTime()]]></param>
+  </validator>
+  <field name="Наименование организации">
+    <field-validator type="required">
+      <message><![CDATA[Введите организацию]]></message>
+    </field-validator>
+  </field>
+  <field name="Тип пропуска">
+    <field-validator type="required">
+      <message><![CDATA[Укажите тип пропуска]]></message>
+    </field-validator>
+  </field>
+  <field name="Вид выполняемых работ">
+    <field-validator type="required">
+      <message><![CDATA[Укажите вид выполняемых работ]]></message>
+    </field-validator>
+  </field>
+  <field name="Время окончания работ">
+    <field-validator type="time">
+      <param name="min"><![CDATA[8:30]]></param>
+      <param name="max"><![CDATA[17:00]]></param>
+    </field-validator>
+    <field-validator type="required"/>
+  </field>
+  <field name="Дата посещения">
+    <field-validator type="dateRelativeToCurrent">
+      <message><![CDATA[Не корректно введена дата]]></message>
+      <param name="min"><![CDATA[1]]></param>
+      <param name="useBusinessCalendar"><![CDATA[true]]></param>
+    </field-validator>
+    <field-validator type="required"/>
+  </field>
+  <field name="ФИО посетителя">
+    <field-validator type="required">
+      <message><![CDATA[Введите ФИО]]></message>
+    </field-validator>
+  </field>
+  <field name="Время начала работ">
+    <field-validator type="time">
+      <param name="min"><![CDATA[8:30]]></param>
+      <param name="max"><![CDATA[17:00]]></param>
+    </field-validator>
+    <field-validator type="required">
+      <message><![CDATA[Введите время начала]]></message>
+    </field-validator>
+  </field>
+</validators>

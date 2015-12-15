@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<validators>
+  <validator type="expression">
+    <message><![CDATA[Проверка данных не пройдена]]></message>
+    <param name="expression"><![CDATA[Время_начала_работ.getTime() < Время_окончания_работ.getTime()]]></param>
+  </validator>
+  <field name="Комментарии руководителя подразделения-инициатора">
+    <field-validator type="required">
+      <transition-context>
+        <on><![CDATA[Отказать]]></on>
+      </transition-context>
+      <message><![CDATA[Введите комментарий]]></message>
+    </field-validator>
+  </field>
+</validators>

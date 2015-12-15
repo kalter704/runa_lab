@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:runa="http://runa.ru/wfe/xml" targetNamespace="http://runa.ru/wfe/xml">
+  <process name="дз 1-2">
+    <extensionElements>
+      <runa:property name="id" value="sub1"/>
+      <runa:property name="showSwimlane" value="none"/>
+      <runa:property name="version" value="4.2.1.201509202349"/>
+      <runa:property name="accessType" value="EmbeddedSubprocess"/>
+    </extensionElements>
+    <startEvent id="sub1.ID1" name="Начало">
+      <extensionElements/>
+    </startEvent>
+    <sequenceFlow id="sub1.ID33" name="Начало1" sourceRef="sub1.ID1" targetRef="sub1.ID4"/>
+    <exclusiveGateway id="sub1.ID14" name="Исключающий шлюз 1"/>
+    <sequenceFlow id="sub1.ID27" name="Исключающий шлюз1" sourceRef="sub1.ID14" targetRef="sub1.ID15"/>
+    <exclusiveGateway id="sub1.ID15" name="Исключающий шлюз 2"/>
+    <sequenceFlow id="sub1.ID28" name="Исключающий шлюз1" sourceRef="sub1.ID15" targetRef="sub1.ID2"/>
+    <userTask id="sub1.ID6" name="Зафиксировать приход посетителя">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник охраны"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub1.ID21" name="Действие1" sourceRef="sub1.ID6" targetRef="sub1.ID8"/>
+    <boundaryEvent id="sub1.ID7" name="Таймер 2" cancelActivity="true" attachedToRef="sub1.ID6">
+      <timerEventDefinition>
+        <timeDuration>#{Дата и время окончания} + 1 minutes</timeDuration>
+      </timerEventDefinition>
+    </boundaryEvent>
+    <sequenceFlow id="sub1.ID20" name="time-out-transition" sourceRef="sub1.ID7" targetRef="sub1.ID9"/>
+    <userTask id="sub1.ID9" name="Уведомление о не приходе посетителя">
+      <extensionElements>
+        <runa:property name="lane" value="Руководитель подразделения-инициатора"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub1.ID29" name="Действие1" sourceRef="sub1.ID9" targetRef="sub1.ID15"/>
+    <userTask id="sub1.ID10" name="Зафиксировать уход посетителя">
+      <extensionElements>
+        <runa:property name="lane" value="Сотрудник охраны"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sub1.ID24" name="Действие1" sourceRef="sub1.ID10" targetRef="sub1.ID11"/>
+    <boundaryEvent id="sub1.ID12" name="Таймер 2" cancelActivity="true" attachedToRef="sub1.ID10">
+      <timerEventDefinition>
+        <timeDuration>#{Дата и время окончания} + 1 minutes</timeDuration>
+      </timerEventDefinition>
+    </boundaryEvent>
+    <sequenceFlow id="sub1.ID23" name="time-out-transition" sourceRef="sub1.ID12" targetRef="sub1.ID13"/>
+    <intermediateCatchEvent id="sub1.ID3" name="Таймер 1">
+      <timerEventDefinition>
+        <timeDuration>#{Дата и время начала} - 1 minutes</timeDuration>
+      </timerEventDefinition>
+    </intermediateCatchEvent>
+    <sequenceFlow id="sub1.ID18" name="time-out-transition" sourceRef="sub1.ID3" targetRef="sub1.ID5"/>
+    <scriptTask id="sub1.ID4" name="Задача сценария 1">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Дата и время начала'=current_date()+'Время начала работ']]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="sub1.ID17" name="Задача сценария1" sourceRef="sub1.ID4" targetRef="sub1.ID3"/>
+    <scriptTask id="sub1.ID5" name="Задача сценария 2">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Дата и время окончания'=current_date()+'Время окончания работ']]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="sub1.ID19" name="Задача сценария1" sourceRef="sub1.ID5" targetRef="sub1.ID6"/>
+    <scriptTask id="sub1.ID8" name="Задача сценария 3">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Время прихода посетителя'=current_date_time()]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="sub1.ID22" name="Задача сценария1" sourceRef="sub1.ID8" targetRef="sub1.ID10"/>
+    <scriptTask id="sub1.ID11" name="Задача сценария 4">
+      <extensionElements>
+        <runa:property name="class" value="ru.runa.wfe.extension.handler.var.FormulaActionHandler"/>
+        <runa:property name="config"><![CDATA['Время ухода посетителя'=current_date_time()]]></runa:property>
+      </extensionElements>
+    </scriptTask>
+    <sequenceFlow id="sub1.ID25" name="Задача сценария1" sourceRef="sub1.ID11" targetRef="sub1.ID14"/>
+    <subProcess id="sub1.ID13" name="Объяснительная на посетителя" runa:process="дз 1-3">
+      <extensionElements>
+        <runa:property name="embedded" value="true"/>
+      </extensionElements>
+    </subProcess>
+    <sequenceFlow id="sub1.ID26" name="Подпроцесс1" sourceRef="sub1.ID13" targetRef="sub1.ID14"/>
+    <endEvent id="sub1.ID2" name="Завершение потока 1">
+      <extensionElements>
+        <runa:property name="token" value="true"/>
+      </extensionElements>
+    </endEvent>
+  </process>
+</definitions>

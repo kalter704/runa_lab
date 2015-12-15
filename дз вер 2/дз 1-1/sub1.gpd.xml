@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-diagram name="дз 1-2" notation="bpmn" rendered="graphiti" width="1165" height="590" showActions="false" showGrid="false">
+  <node name="sub1.ID1" x="40" y="33" width="48" height="48">
+    <transition name="Начало1"/>
+    <textDecoration x="46" y="5"/>
+  </node>
+  <node name="sub1.ID6" x="382" y="80" width="132" height="91">
+    <transition name="Действие1">
+      <bendpoint x="568" y="124"/>
+    </transition>
+  </node>
+  <node name="sub1.ID7" x="402" y="150" width="48" height="48">
+    <transition name="time-out-transition">
+      <label x="-139" y="-22"/>
+      <bendpoint x="297" y="158"/>
+    </transition>
+  </node>
+  <node name="sub1.ID9" x="230" y="180" width="132" height="91">
+    <transition name="Действие1">
+      <bendpoint x="296" y="451"/>
+    </transition>
+  </node>
+  <node name="sub1.ID10" x="502" y="191" width="132" height="93">
+    <transition name="Действие1">
+      <bendpoint x="677" y="238"/>
+    </transition>
+  </node>
+  <node name="sub1.ID12" x="522" y="261" width="48" height="48">
+    <transition name="time-out-transition">
+      <label x="-139" y="-13"/>
+      <bendpoint x="437" y="272"/>
+    </transition>
+  </node>
+  <node name="sub1.ID4" x="110" y="39" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="sub1.ID5" x="230" y="39" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1">
+      <bendpoint x="452" y="57"/>
+    </transition>
+  </node>
+  <node name="sub1.ID8" x="550" y="136" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1"/>
+  </node>
+  <node name="sub1.ID11" x="660" y="291" width="132" height="84" minimizedView="true">
+    <transition name="Задача сценария1">
+      <bendpoint x="678" y="405"/>
+    </transition>
+  </node>
+  <node name="sub1.ID14" x="544" y="381" width="48" height="48">
+    <transition name="Исключающий шлюз1">
+      <bendpoint x="567" y="452"/>
+    </transition>
+  </node>
+  <node name="sub1.ID15" x="424" y="428" width="48" height="48">
+    <transition name="Исключающий шлюз1"/>
+  </node>
+  <node name="sub1.ID13" x="371" y="291" width="132" height="91">
+    <transition name="Подпроцесс1">
+      <bendpoint x="437" y="405"/>
+    </transition>
+  </node>
+  <node name="sub1.ID3" x="170" y="33" width="48" height="48">
+    <transition name="time-out-transition">
+      <label x="-64" y="-45"/>
+    </transition>
+  </node>
+  <node name="sub1.ID2" x="425" y="503" width="48" height="48">
+    <textDecoration x="394" y="551"/>
+  </node>
+</process-diagram>
